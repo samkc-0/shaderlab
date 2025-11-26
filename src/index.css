@@ -1,0 +1,34 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    @apply text-[rgba(255,255,255,0.87)] bg-[#242424] font-sans;
+  }
+
+  body {
+    @apply grid place-items-center min-w-[320px] min-h-screen relative m-0;
+  }
+}
+
+.grid-container {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  grid-template-rows: repeat(5, 1fr);
+  grid-column-gap: 0px;
+  grid-row-gap: 0px;
+  width: 100vh;
+  height: 100vh;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.canvas {
+  grid-area: 1 / 1 / 6 / 4;
+}
+.vertex-shaders-editor {
+  grid-area: 1 / 4 / 4 / 6;
+}
+.fragment-shaders-editor {
+  grid-area: 4 / 4 / 6 / 6;
+}
