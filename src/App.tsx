@@ -1,12 +1,7 @@
 import { Canvas } from "@react-three/fiber";
-import { DoubleSide } from "three";
-import "./index.css";
 import { memo, useState } from "react";
-import Editor from "react-simple-code-editor";
-import { highlight, languages } from "prismjs";
-import "prismjs/components/prism-clike";
-import "prismjs/components/prism-glsl";
-import "prismjs/themes/prism.css"; // o el tema que uses
+import { CodeEditor as Editor } from "@/code-editor";
+import { highlightGLSL as highlight } from "@/highlight-glsl";
 
 export function App() {
   const [vertexShader, setVertexShader] = useState<string>("");
@@ -16,15 +11,15 @@ export function App() {
     <main className="fixed top-0 left-0 w-1/2 h-screen max-w-7xl mx-auto p-8 text-center z-10">
       <Preview vertexShader={vertexShader} fragmentShader={fragmentShader} />
       <Editor
-        value={vertexShader}
+        value={"hello"}
         onValueChange={setVertexShader}
-        highlight={(code) => highlight(code, languages.glsl, "glsl")}
+        highlight={highlight}
         padding={0}
       />
       <Editor
-        value={fragmentShader}
+        value={"hello"}
         onValueChange={setFragmentShader}
-        highlight={(code) => highlight(code, languages.glsl, "glsl")}
+        highlight={highlight}
         padding={0}
       />
     </main>
