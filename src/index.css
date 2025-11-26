@@ -12,23 +12,82 @@
 
 .grid-container {
   display: grid;
-  grid-template-columns: repeat(5, 1fr);
-  grid-template-rows: repeat(5, 1fr);
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  grid-template-areas:
+    "canvas vertex"
+    "canvas fragment";
   grid-column-gap: 0px;
   grid-row-gap: 0px;
-  width: 100vh;
-  height: 100vh;
-  position: absolute;
-  top: 0;
-  left: 0;
+  grid-auto-flow: row;
 }
 
 .canvas {
-  grid-area: 1 / 1 / 6 / 4;
+  grid-area: "canvas";
+  border: solid black 1px;
 }
 .vertex-shaders-editor {
-  grid-area: 1 / 4 / 4 / 6;
+  grid-area: "vertex";
+  background: #1a1a1a;
+  color: #fbf0df;
 }
 .fragment-shaders-editor {
-  grid-area: 4 / 4 / 6 / 6;
+  grid-area: "fragment";
+  background: #1a1a1a;
+  color: #fbf0df;
+}
+
+/* Container for the editor */
+.glsl-editor {
+  font-family:
+    "Fira Code", "SF Mono", Menlo, Monaco, Consolas, "Liberation Mono",
+    "Courier New", monospace;
+  font-size: 13px;
+  line-height: 1.5;
+  background: #1e1e1e;
+  color: #d4d4d4;
+  border-radius: 6px;
+  border: 1px solid #333;
+  min-height: 200px;
+}
+
+/* Tokens */
+.token-comment {
+  color: #6a9955;
+}
+
+.token-string {
+  color: #ce9178;
+}
+
+.token-number {
+  color: #b5cea8;
+}
+
+.token-keyword {
+  color: #c586c0;
+}
+
+.token-type {
+  color: #4ec9b0;
+}
+
+.token-builtin {
+  color: #dcdcaa;
+}
+
+.token-preprocessor {
+  color: #569cd6;
+}
+
+.token-operator {
+  color: #d4d4d4;
+}
+
+.token-punctuation {
+  color: #d4d4d4;
+}
+
+.token-identifier {
+  color: #d4d4d4;
 }

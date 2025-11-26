@@ -1,23 +1,27 @@
 import { Canvas } from "@react-three/fiber";
 import { memo, useState } from "react";
-import { CodeEditor as Editor } from "@/code-editor";
-import { highlightGLSL as highlight } from "@/highlight-glsl";
+import Editor from "@/editor";
+import "./index.css";
+import { OrbitControls } from "@react-three/drei";
+import { highlightGLSL as highlight } from "./highlight-glsl";
 
 export function App() {
   const [vertexShader, setVertexShader] = useState<string>("");
   const [fragmentShader, setFragmentShader] = useState<string>("");
 
   return (
-    <main className="fixed top-0 left-0 w-1/2 h-screen max-w-7xl mx-auto p-8 text-center z-10">
+    <main className="grid-container fixed top-0 left-0 w-full h-full mx-auto text-center z-10 bg-lime-50">
       <Preview vertexShader={vertexShader} fragmentShader={fragmentShader} />
       <Editor
-        value={"hello"}
+        className="vertex-shaders-editor"
+        value={vertexShader}
         onValueChange={setVertexShader}
         highlight={highlight}
         padding={0}
       />
       <Editor
-        value={"hello"}
+        className="fragment-shaders-editor"
+        value={fragmentShader}
         onValueChange={setFragmentShader}
         highlight={highlight}
         padding={0}
@@ -36,7 +40,8 @@ const Preview = memo(function Preview({
   fragmentShader,
 }: PreviewProps) {
   return (
-    <Canvas camera={{ position: [0, 0, 5] }}>
+    <Canvas className="canvas" camera={{ position: [0, 0, 5] }}>
+      <OrbitControls />
       <mesh>
         <planeGeometry args={[1, 1, 32, 32]} />
         <meshBasicMaterial />

@@ -11,6 +11,7 @@
     "build": "bun run build.ts"
   },
   "dependencies": {
+    "@react-three/drei": "^10.7.7",
     "@react-three/fiber": "^9.4.0",
     "@types/prismjs": "^1.26.5",
     "@types/three": "^0.181.0",
