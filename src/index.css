@@ -12,11 +12,11 @@
 
 .grid-container {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1fr 0.5fr 1fr;
   grid-template-rows: 1fr 1fr;
   grid-template-areas:
-    "canvas vertex"
-    "canvas fragment";
+    "canvas canvas vertex"
+    "canvas canvas fragment";
   height: 100vh;
   grid-column-gap: 0px;
   grid-row-gap: 0px;
