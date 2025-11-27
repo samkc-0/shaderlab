@@ -17,22 +17,25 @@
   grid-template-areas:
     "canvas vertex"
     "canvas fragment";
+  height: 100vh;
   grid-column-gap: 0px;
   grid-row-gap: 0px;
-  grid-auto-flow: row;
+  grid-auto-flow: row-dense;
+  font-family: monospace;
 }
 
 .canvas {
-  grid-area: "canvas";
+  grid-area: canvas;
   border: solid black 1px;
+  background: black;
 }
 .vertex-shaders-editor {
-  grid-area: "vertex";
+  grid-area: vertex;
   background: #1a1a1a;
   color: #fbf0df;
 }
 .fragment-shaders-editor {
-  grid-area: "fragment";
+  grid-area: fragment;
   background: #1a1a1a;
   color: #fbf0df;
 }
