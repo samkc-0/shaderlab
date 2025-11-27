@@ -13,20 +13,27 @@ export function App() {
     getDefaultFragmentShader(),
   );
 
+  const handleVertexShaderChange = (value: string) => {
+    setVertexShader(value);
+  };
+
+  const handleFragmentShaderChange = (value: string) => {
+    setFragmentShader(value);
+  };
   return (
     <main className="grid-container fixed top-0 left-0 w-full h-full mx-auto text-center z-10 bg-lime-50">
       <Preview vertexShader={vertexShader} fragmentShader={fragmentShader} />
       <Editor
         className="vertex-shaders-editor"
         value={vertexShader}
-        onValueChange={setVertexShader}
+        onValueChange={handleVertexShaderChange}
         highlight={highlight}
         padding={0}
       />
       <Editor
         className="fragment-shaders-editor"
         value={fragmentShader}
-        onValueChange={setFragmentShader}
+        onValueChange={handleFragmentShaderChange}
         highlight={highlight}
         padding={0}
       />
@@ -48,7 +55,7 @@ const Preview = memo(function Preview({
       <OrbitControls />
       <mesh>
         <planeGeometry args={[1, 1, 32, 32]} />
-        {fragmentShader ? (
+        {fragmentShader && vertexShader ? (
           <shaderMaterial
             vertexShader={vertexShader}
             fragmentShader={fragmentShader}
